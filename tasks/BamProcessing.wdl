@@ -74,7 +74,7 @@ task SortSamSpark {
       SortSamSpark \
       -I ~{input_bam} \
       -O ~{output_bam_basename}.bam \
-      -- --conf spark.local.dir=. --spark-master 'local[16]' --conf 'spark.kryo.referenceTracking=false'
+      -- --conf spark.local.dir=. --spark-master 'local[8]' --conf 'spark.kryo.referenceTracking=false'
 
     samtools index ~{output_bam_basename}.bam ~{output_bam_basename}.bai
   }
@@ -82,7 +82,7 @@ task SortSamSpark {
     docker: gatk_docker
     disks: "local-disk " + disk_size + " HDD"
     bootDiskSizeGb: "15"
-    cpu: "16"
+    cpu: "8"
     memory: "102 GiB"
     preemptible: preemptible_tries
   }
