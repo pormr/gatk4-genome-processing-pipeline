@@ -112,7 +112,7 @@ task SamToFastqAndBwaMemAndMba {
     docker: "us.gcr.io/broad-gotc-prod/genomes-in-the-cloud:2.4.3-1564508330" # TODO: update docker to use the new Picard options
     preemptible: preemptible_tries
     memory: "14 GiB"
-    cpu: "16"
+    cpu: "8"
     disks: "local-disk " + disk_size + " HDD"
   }
   output {
